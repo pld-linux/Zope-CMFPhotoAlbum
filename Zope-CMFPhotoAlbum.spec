@@ -4,14 +4,14 @@ Summary:	A Zope product providing Photo Album in your CMF
 Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
 Name:		Zope-%{zope_subname}
 Version:	0.4
-Release:	0.%{sub_ver}.2
+Release:	0.%{sub_ver}.3
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}%{sub_ver}.tar.gz
 # Source0-md5:	5b1157ccdbd7638495481db8c3aefcbe
 URL:		http://sourceforge.net/projects/collective/
 %pyrequires_eq	python-modules
-Requires:	Zope-CMF >= 1.3
+Requires:	Zope-CMF >= 1:1.4
 Requires:	Zope-CMFPlone >= 1.0.1
 Requires:	Zope >= 2.6.1
 Requires:	Zope-BTreeFolder2 >= 0.5
