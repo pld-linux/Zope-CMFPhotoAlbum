@@ -1,10 +1,10 @@
 %include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFPhotoAlbum
-Summary:	CMFPhotoAlbum - a Zope product providing Photo Album in your CMF
-Summary(pl):	CMFPhotoAlbum - dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
+Summary:	A Zope product providing Photo Album in your CMF
+Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
 Name:		Zope-%{zope_subname}
 Version:	0.3
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tar.gz
@@ -16,12 +16,11 @@ Requires:	Zope-CMFPlone >= 1.0.1
 Requires:	Zope >= 2.6.1
 Requires:	Zope-BTreeFolder2 >= 0.5
 Requires:	Zope-CMFPhoto
+Requires(post,postun):  /usr/sbin/installzopeproduct
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Conflicts:	CMF
 Conflicts:	Plone
-
-%define 	product_dir	/usr/lib/zope/Products
 
 %description
 CMFPhotoAlbum is a Zope product that provides Photo Album in your CMF.
@@ -35,12 +34,12 @@ zdjêciach w CMF.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-cp -af {Extensions,i18n,skins,*.py} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+cp -af {Extensions,i18n,skins,*.py} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-%py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
-%py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
 
@@ -48,16 +47,20 @@ cp -af {Extensions,i18n,skins,*.py} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
 if [ -f /var/lock/subsys/zope ]; then
 	/etc/rc.d/init.d/zope restart >&2
 fi
 
 %postun
-if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
+if [ "$1" = "0" ]; then
+        /usr/sbin/installzopeproduct -d %{zope_subname}
+        if [ -f /var/lock/subsys/zope ]; then
+                /etc/rc.d/init.d/zope restart >&2
+        fi
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc HISTORY.txt README.txt
-%{product_dir}/%{zope_subname}
+%{_datadir}/%{name}
