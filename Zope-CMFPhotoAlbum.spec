@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFPhotoAlbum
 %define		sub_ver rc2
 Summary:	A Zope product providing Photo Album in your CMF
