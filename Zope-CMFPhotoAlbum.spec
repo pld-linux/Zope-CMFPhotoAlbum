@@ -4,7 +4,7 @@ Summary:	A Zope product providing Photo Album in your CMF
 Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
 Name:		Zope-%{zope_subname}
 Version:	0.4
-Release:	0.%{sub_ver}.1
+Release:	0.%{sub_ver}.2
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}%{sub_ver}.tar.gz
