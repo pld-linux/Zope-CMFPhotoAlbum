@@ -4,7 +4,7 @@ Summary:	A Zope product providing Photo Album in your CMF
 Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
 Name:		Zope-%{zope_subname}
 Version:	0.3
-Release:	5
+Release:	6
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tar.gz
@@ -36,7 +36,7 @@ zdjêciach w CMF.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-cp -af {Extensions,i18n,skins,*.py} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {Extensions,i18n,skins,*.py,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -62,5 +62,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc HISTORY.txt README.txt
+%doc HISTORY.txt README.txt LICENSE.*
 %{_datadir}/%{name}
