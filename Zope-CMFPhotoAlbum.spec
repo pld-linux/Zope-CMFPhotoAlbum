@@ -10,6 +10,7 @@ Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}%{sub_ver}.tar.gz
 # Source0-md5:	5b1157ccdbd7638495481db8c3aefcbe
 URL:		http://sourceforge.net/projects/collective/
+BuildRequires:  python
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1:1.4
 Requires:	Zope-CMFPlone >= 1.0.1
