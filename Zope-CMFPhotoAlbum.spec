@@ -3,12 +3,12 @@
 Summary:	CMFPhotoAlbum - a Zope product providing Photo Album in your CMF
 Summary(pl):	CMFPhotoAlbum - dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
 Name:		Zope-%{zope_subname}
-Version:	0.2
-Release:	2
+Version:	0.3
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tar.gz
-# Source0-md5:	2951e810674200854db370d9f3197bcb
+# Source0-md5:	523f48d4d7e5d69373dcac87fffcad99
 URL:		http://sourceforge.net/projects/collective/
 %pyrequires_eq	python-modules
 Requires:	CMF >= 1.3
