@@ -5,16 +5,16 @@ Summary(pl):	CMFPhotoAlbum - dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciac
 Name:		Zope-%{zope_subname}
 Version:	0.2
 Release:	2
-License:	GNU
+License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tar.gz
 # Source0-md5:	2951e810674200854db370d9f3197bcb
 URL:		http://sourceforge.net/projects/collective/
 %pyrequires_eq	python-modules
-Requires:	CMF
-Requires:	Plone
-Requires:	Zope
-Requires:	Zope-BTreeFolder2
+Requires:	CMF >= 1.3
+Requires:	Plone >= 1.0.1
+Requires:	Zope >= 2.6.1
+Requires:	Zope-BTreeFolder2 >= 0.5
 Requires:	Zope-CMFPhoto
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,18 +29,17 @@ CMFPhotoAlbum jest dodatkiem dla Zope umo¿liwiaj±cym operacje na
 zdjêciach w CMF.
 
 %prep
-%setup -q -c %{zope_subname}-%{version}
+%setup -q -n %{zope_subname}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{product_dir}
+install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+cp -af {Extensions,i18n,skins,*.py} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/*.txt
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
 
 %clean
@@ -58,5 +57,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{zope_subname}/*.txt
+%doc HISTORY.txt README.txt
 %{product_dir}/%{zope_subname}
