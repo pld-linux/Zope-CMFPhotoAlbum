@@ -1,14 +1,15 @@
 %include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFPhotoAlbum
+%define		sub_ver rc1
 Summary:	A Zope product providing Photo Album in your CMF
 Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
 Name:		Zope-%{zope_subname}
-Version:	0.3
-Release:	6
+Version:	0.4
+Release:	0.%{sub_ver}.1
 License:	GPL v2+
 Group:		Development/Tools
-Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}.tar.gz
-# Source0-md5:	523f48d4d7e5d69373dcac87fffcad99
+Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}%{sub_ver}.tar.gz
+# Source0-md5:	b16f46d6eb6e57669eba30586e4d4bb5
 URL:		http://sourceforge.net/projects/collective/
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1.3
