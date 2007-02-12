@@ -1,7 +1,7 @@
 %define		zope_subname	CMFPhotoAlbum
 %define		sub_ver rc2
 Summary:	A Zope product providing Photo Album in your CMF
-Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na zdjêciach w CMF
+Summary(pl.UTF-8):   Dodatek dla Zope umoÅ¼liwiajÄ…cy operacje na zdjÄ™ciach w CMF
 Name:		Zope-%{zope_subname}
 Version:	0.4
 Release:	0.%{sub_ver}.3
@@ -27,9 +27,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 CMFPhotoAlbum is a Zope product that provides Photo Album in your CMF.
 
-%description -l pl
-CMFPhotoAlbum jest dodatkiem dla Zope umo¿liwiaj±cym operacje na
-zdjêciach w CMF.
+%description -l pl.UTF-8
+CMFPhotoAlbum jest dodatkiem dla Zope umoÅ¼liwiajÄ…cym operacje na
+zdjÄ™ciach w CMF.
 
 %prep
 %setup -q -n %{zope_subname}
