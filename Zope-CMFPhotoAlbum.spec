@@ -1,7 +1,7 @@
 %define		zope_subname	CMFPhotoAlbum
 %define		sub_ver rc2
 Summary:	A Zope product providing Photo Album in your CMF
-Summary(pl.UTF-8):   Dodatek dla Zope umożliwiający operacje na zdjęciach w CMF
+Summary(pl.UTF-8):	Dodatek dla Zope umożliwiający operacje na zdjęciach w CMF
 Name:		Zope-%{zope_subname}
 Version:	0.4
 Release:	0.%{sub_ver}.3
